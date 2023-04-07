@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block header %}
+<title>List All Uploaded Files</title>
+{% endblock %} {% block content %}
+<h1>All Uploaded Files</h1>
+{% if files %}
+<table class="table table-bordered container">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>File Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for f in files %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{f}}</td>
+      <td>
+        <a
+          class="btn btn-primary"
+          href="{{ url_for('admin_bp.download', filename=f) }}"
+        >
+          Download
+        </a>
+        <a
+          class="btn btn-primary"
+          href="{{ url_for('admin_bp.show', filename=f) }}"
+        >
+          View</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<h3>Not a single file found, upload first!!</h3>
+{% endif %} {% endblock %}

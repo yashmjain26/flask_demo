@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block header %}
+<title>File Data</title>
+{% endblock %} {% block content %}
+<div align="center table table-bordered container-fluid">
+  <!--Displaying the converted table-->
+  {% for table in tables %} {{ table|safe }} {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block header %}
+<title>Flask File Upload</title>
+{% endblock %} {% block content %}
+<h1>Welcome to Flask File Upload</h1>
+<ol>
+  <li>
+    <a href="{{ url_for('upload_blueprint.upload_file') }}">Upload File</a>
+  </li>
+  <li><a href="{{ url_for('admin_bp.view_files') }}">Admin Panel</a></li>
+</ol>
+{% endblock %}

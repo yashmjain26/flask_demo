@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block header %}
+<title>Upload Excel or CSV</title>
+{% endblock %} {% block content %}
+<h1>Upload Excel File <code>(.xlsx or .csv)</code></h1>
+<form
+  action="{{ url_for('upload_blueprint.file_upload') }}"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <input
+    type="file"
+    name="file"
+    class=""
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv"
+  />
+  <input class="btn btn-primary" type="submit" value="Upload" />
+</form>
+{% endblock %}

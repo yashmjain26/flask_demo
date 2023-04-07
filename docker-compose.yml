@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./web
+    volumes:
+      - ./web:/usr/src/app/
+      - ./Documents:/Documents
+    env_file:
+      - ./web/.env
+    ports:
+      - 5000:5000
+    networks:
+      - flask_demo
+    entrypoint: "python main.py run -h 0.0.0.0"
+    
+
+networks:
+  flask_demo:
+    name: flask_demo
+    driver: bridge
